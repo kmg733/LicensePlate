@@ -6,7 +6,7 @@ import pytesseract
 plt.style.use('dark_background' )
 
 #원본 이미지와 그레이 스케일 이미지 생성
-img_ori = cv2.imread('E:/python project/elecCar/elect4.jpg')
+img_ori = cv2.imread('img\elect4.jpg')
 height, width, channel = img_ori.shape
 
 gray = cv2.cvtColor(img_ori, cv2.COLOR_BGR2GRAY)
@@ -97,8 +97,8 @@ for d in possible_contours:
 MAX_DIAG_MULTIPLYER = 5 # 5
 MAX_ANGLE_DIFF = 12.0 # 12.0
 MAX_AREA_DIFF = 0.5 # 0.5
-MAX_WIDTH_DIFF = 0.8
-MAX_HEIGHT_DIFF = 0.4
+MAX_WIDTH_DIFF = 0.8 #0.8
+MAX_HEIGHT_DIFF = 0.4 #0.4
 MIN_N_MATCHED = 3 # 3
 
 def find_chars(contour_list):
@@ -170,7 +170,7 @@ for r in matched_result:
 #번호판이 삐뚫어져 있으면 번호판 돌리기
 
 
-PLATE_WIDTH_PADDING = 1.3 # 1.3
+PLATE_WIDTH_PADDING = 1.3# 1.3
 PLATE_HEIGHT_PADDING = 1.5 # 1.5
 MIN_PLATE_RATIO = 3
 MAX_PLATE_RATIO = 10
@@ -303,7 +303,6 @@ for i, plate_img in enumerate(plate_imgs):
 
 
 info = plate_infos[longest_idx]
-
 img_out = img_ori.copy()
 
 cv2.rectangle(img_out, pt1=(info['x'], info['y']), pt2=(info['x']+info['w'], info['y']+info['h']), color=(255,0,0), thickness=2)
